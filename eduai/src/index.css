@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #f0f7ff;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .glass-dark {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #2563eb, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-gradient {
+    background: linear-gradient(160deg, #dbeafe 0%, #eff6ff 40%, #f0f9ff 70%, #ffffff 100%);
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Ticker animation */
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-track {
+  animation: ticker-scroll 25s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* Progress bar pulse */
+@keyframes progress-fill {
+  0%   { width: 10%; }
+  40%  { width: 68%; }
+  70%  { width: 88%; }
+  85%  { width: 72%; }
+  100% { width: 80%; }
+}
+.progress-fill {
+  animation: progress-fill 3s ease-in-out infinite alternate;
+}
+
+/* Float cards */
+@keyframes float-up-down {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(0.5deg); }
+}
+.float-card-1 { animation: float-up-down 5s ease-in-out infinite; }
+.float-card-2 { animation: float-up-down 6s ease-in-out 1s infinite; }
+.float-card-3 { animation: float-up-down 7s ease-in-out 2s infinite; }
+
+/* Dot pulse */
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+.dot-pulse { animation: dot-pulse 1.5s ease-in-out infinite; }
+
+/* Drag zone shimmer on hover */
+.upload-zone:hover .upload-icon {
+  transform: scale(1.1) translateY(-4px);
+  transition: transform 0.3s ease;
+}
+
+/* Quiz option hover */
+.quiz-option {
+  transition: all 0.2s ease;
+}
+.quiz-option:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.12);
+}
+.quiz-option.selected {
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  border-color: #3b82f6;
+}
+
+/* Smooth transitions */
+.nav-btn {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-btn:hover {
+  box-shadow: 0 8px 25px rgba(17, 24, 39, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Ripple effect on generate button */
+.generate-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.generate-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1f2937, #374151);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.generate-btn:hover::before {
+  opacity: 1;
+}
+.generate-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(17, 24, 39, 0.35);
+}
+.generate-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Dark Mode ─────────────────────────────────────────────────── */
+.dark body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+.dark .glass {
+  background: rgba(15, 23, 42, 0.85) !important;
+  border-color: rgba(148, 163, 184, 0.15) !important;
+}
+.dark .hero-gradient {
+  background: linear-gradient(160deg, #0f172a 0%, #1e293b 50%, #0f172a 100%) !important;
+}
+.dark .bg-white { background-color: #1e293b !important; }
+.dark .bg-gray-50 { background-color: #1e293b !important; }
+.dark .bg-gray-100 { background-color: #243044 !important; }
+.dark .bg-blue-50 { background-color: #1e3a5f !important; }
+.dark .bg-indigo-50 { background-color: #1e2d5a !important; }
+.dark .bg-violet-50 { background-color: #2d1f5e !important; }
+.dark .bg-purple-50 { background-color: #2a1b4e !important; }
+.dark .bg-green-50 { background-color: #0f2e1a !important; }
+.dark .bg-amber-50 { background-color: #2e1e0a !important; }
+.dark .bg-red-50 { background-color: #2e0f0f !important; }
+.dark .text-gray-900 { color: #f1f5f9 !important; }
+.dark .text-gray-800 { color: #e2e8f0 !important; }
+.dark .text-gray-700 { color: #cbd5e1 !important; }
+.dark .text-gray-600 { color: #94a3b8 !important; }
+.dark .text-gray-500 { color: #64748b !important; }
+.dark .text-gray-400 { color: #475569 !important; }
+.dark .border-gray-100 { border-color: rgba(148,163,184,0.15) !important; }
+.dark .border-gray-200 { border-color: rgba(148,163,184,0.2) !important; }
+.dark .border-blue-100 { border-color: rgba(59,130,246,0.2) !important; }
+.dark .border-blue-200 { border-color: rgba(59,130,246,0.3) !important; }
+.dark .shadow-glass { box-shadow: 0 8px 32px rgba(0,0,0,0.4) !important; }
+.dark .shadow-card  { box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important; }
+.dark nav > div { background: rgba(15,23,42,0.92) !important; }
+.dark input, .dark textarea {
+  background-color: #1e293b !important;
+  color: #e2e8f0 !important;
+  border-color: rgba(148,163,184,0.25) !important;
+}
+.dark input::placeholder { color: #64748b !important; }
+.dark footer { background-color: #020617 !important; }
+.dark .quiz-option { background: #1e293b !important; border-color: rgba(148,163,184,0.2) !important; color: #e2e8f0 !important; }
+.dark .quiz-option.selected { background: linear-gradient(135deg,#1e3a5f,#1e2d5a) !important; }
+.dark .progress-fill { background: linear-gradient(90deg, #3b82f6, #60a5fa) !important; }
+.dark ::-webkit-scrollbar { width: 6px; }
+.dark ::-webkit-scrollbar-track { background: #1e293b; }
+.dark ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
