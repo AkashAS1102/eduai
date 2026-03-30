@@ -110,7 +110,7 @@ export default function App() {
             <div style={{ width: 32, height: 32, borderRadius: 8, background: 'linear-gradient(135deg,#7c3aed,#a78bfa)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16 }}>🤖</div>
             <div style={{ flex: 1, minWidth: 0 }}>
               <p style={{ fontSize: '0.78rem', fontWeight: 600, color: '#1e293b' }}>Powered by Gemini</p>
-              <p style={{ fontSize: '0.65rem', color: '#94a3b8' }}>Google AI · Flash 2.0</p>
+              <p style={{ fontSize: '0.65rem', color: '#94a3b8' }}>Google AI · Free Tier</p>
             </div>
           </div>
         </div>

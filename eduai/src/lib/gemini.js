@@ -2,9 +2,9 @@ const KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
 // Models confirmed available for this API key (verified via /v1beta/models)
 const MODELS = [
-  'gemini-2.5-flash',      // Best free-tier model, 1M tokens
-  'gemini-2.0-flash',      // Fast, widely available
-  'gemini-2.0-flash-lite', // Lightest option
+  'gemini-1.5-flash',      // Best stable free-tier model
+  'gemini-2.0-flash-exp',  // Fast experimental model
+  'gemini-1.5-pro',       // Higher intelligence fallback
 ];
 
 async function call(parts) {
