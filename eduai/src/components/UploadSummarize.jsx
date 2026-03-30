@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { summarize } from '../lib/gemini';
+import { summarize } from '../lib/ai';
 
 const FMT = b => b < 1048576 ? (b / 1024).toFixed(1) + ' KB' : (b / 1048576).toFixed(1) + ' MB';
 
@@ -37,7 +37,10 @@ export default function UploadSummarize({ file, setFile }) {
   };
 
   const doSummarize = async () => {
-    if (!file) return;
+    if (!file) {
+      setError('Please upload a document first before generating a summary.');
+      return;
+    }
     setLoading(true); setError(''); setSummary('');
     try {
       const result = await summarize(file);

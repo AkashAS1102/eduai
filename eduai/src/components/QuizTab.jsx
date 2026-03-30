@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { generateQuiz } from '../lib/gemini';
+import { generateQuiz } from '../lib/ai';
 
 const DIFF = {
   easy:   { label: 'Easy',   emoji: '🟢', seconds: 0 },

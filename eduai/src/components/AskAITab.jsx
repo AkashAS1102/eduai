@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { askQuestion } from '../lib/gemini';
+import { askQuestion } from '../lib/ai';
 
 function renderMd(text) {
   return text
@@ -24,7 +24,7 @@ const SUGGESTIONS = [
 
 export default function AskAITab({ file }) {
   const [messages, setMessages] = useState([
-    { role: 'ai', text: "Hi! I'm your AI study assistant powered by Gemini. Ask me anything about your uploaded document, or any academic topic. I'll give you clear, focused answers. 🎓" }
+    { role: 'ai', text: "Hi! I'm your AI study assistant powered by Groq. Ask me anything about your uploaded document, or any academic topic. I'll give you clear, focused answers. 🎓" }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -87,7 +87,7 @@ export default function AskAITab({ file }) {
                 dangerouslySetInnerHTML={{ __html: renderMd(m.text) }} />
             </div>
             <p style={{ fontSize: '0.68rem', color: '#94a3b8', marginTop: 4, padding: '0 38px' }}>
-              {m.role === 'user' ? 'You' : 'Gemini AI'}
+              {m.role === 'user' ? 'You' : 'Llama 3.3'}
             </p>
           </div>
         ))}

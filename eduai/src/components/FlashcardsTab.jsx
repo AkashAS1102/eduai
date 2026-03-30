@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { generateFlashcards } from '../lib/gemini';
+import { generateFlashcards } from '../lib/ai';
 
 function sm2(card, q) {
   let { ef = 2.5, interval = 1, reps = 0 } = card;
