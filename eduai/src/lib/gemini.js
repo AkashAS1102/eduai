@@ -1,10 +1,10 @@
 const KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
-// Models confirmed available for this API key (verified via /v1beta/models)
+// Models confirmed available for this API key (verified via /v1)
 const MODELS = [
   'gemini-1.5-flash',      // Best stable free-tier model
-  'gemini-2.0-flash-exp',  // Fast experimental model
-  'gemini-1.5-pro',       // Higher intelligence fallback
+  'gemini-1.5-flash-8b',   // Higher rate-limit fallback
+  'gemini-1.5-pro',        // Higher intelligence fallback
 ];
 
 async function call(parts) {
@@ -12,7 +12,7 @@ async function call(parts) {
 
   let lastError;
   for (const model of MODELS) {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1/models/${model}:generateContent?key=${KEY}`;
     try {
       const res = await fetch(url, {
         method: 'POST',
