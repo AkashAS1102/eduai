@@ -40,7 +40,7 @@ export default function QuizTab({ file }) {
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 400, gap: 16 }}>
       <div style={{ width: 56, height: 56, borderRadius: 14, background: 'linear-gradient(135deg,#2563eb,#3b82f6)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28 }}>🤖</div>
       <p style={{ fontWeight: 700, fontSize: '1rem', color: '#1e293b' }}>Generating Quiz…</p>
-      <p style={{ fontSize: '0.82rem', color: '#94a3b8' }}>Gemini is reading your content (5–15 seconds)</p>
+      <p style={{ fontSize: '0.82rem', color: '#94a3b8' }}>AI is reading your content (5–15 seconds)</p>
       <div className="progress-bar" style={{ width: 200 }}><div className="progress-fill" style={{ width: '70%' }} /></div>
     </div>
   );
